@@ -1,0 +1,21 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12.1)
+
+SET(PROJECT_VER_MAJOR 0)
+SET(PROJECT_VER_MINOR 0)
+SET(PROJECT_VER_PATCH 1)
+
+PROJECT(car_evolution)
+
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -g")
+
+FIND_PACKAGE(glfw3 REQUIRED)
+
+INCLUDE_DIRECTORIES(
+    "${PROJECT_SOURCE_DIR}/deps/Box2D/Box2D")
+
+LINK_DIRECTORIES(
+    "${PROJECT_SOURCE_DIR}/deps/Box2D/Box2D/Build/gmake/bin/Debug"
+    "${PROJECT_SOURCE_DIR}/deps/Box2D/Box2D/Build/gmake/obj/Debug/GLEW"
+    "${PROJECT_SOURCE_DIR}/deps/Box2D/Box2D/Build/gmake/obj/Debug/IMGUI")
+
+add_subdirectory(Testbed)
